@@ -1,9 +1,11 @@
+import '../theme/colors.dart';
 import 'package:flutter/material.dart';
 
 class MusicPlayerScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      backgroundColor: MyColors.backgroundColor1,
       body: Container(
         width: MediaQuery.of(context).size.width,
         height: MediaQuery.of(context).size.height,
@@ -13,12 +15,17 @@ class MusicPlayerScreen extends StatelessWidget {
             SizedBox(
               height: 10,
             ),
-            Container(
-              height: 8,
-              width: 60,
-              decoration: BoxDecoration(
-                  color: const Color(0xff3b1f50),
-                  borderRadius: BorderRadius.all(Radius.circular(40))),
+            GestureDetector(
+              onHorizontalDragDown: (DragDownDetails dragDownDetails) {
+                Navigator.of(context).pop();
+              },
+              child: Container(
+                height: 8,
+                width: 60,
+                decoration: BoxDecoration(
+                    color: MyColors.secondaryColor,
+                    borderRadius: BorderRadius.all(Radius.circular(40))),
+              ),
             ),
             SizedBox(
               height: 20,
@@ -64,10 +71,12 @@ class MusicPlayerScreen extends StatelessWidget {
                     children: [
                       Text(
                         '01:32',
-                        style: TextStyle(fontSize: 12,color: const Color(0xffd594ee)),
+                        style: TextStyle(
+                            fontSize: 12, color: MyColors.subtitleColor),
                       ),
                       Text('05:23',
-                          style: TextStyle(fontSize: 12,color: const Color(0xffd594ee)))
+                          style: TextStyle(
+                              fontSize: 12, color: MyColors.subtitleColor))
                     ],
                   )
                 ],
@@ -96,15 +105,15 @@ class MusicPlayerScreen extends StatelessWidget {
                       ),
                       onPressed: () {}),
                   Container(
-                    height: 70,
-                    width: 70,
+                    height: 60,
+                    width: 60,
                     decoration: BoxDecoration(
-                        color: const Color(0xffd933c3), shape: BoxShape.circle),
+                        color: MyColors.primaryColor, shape: BoxShape.circle),
                     child: IconButton(
                         icon: Icon(
                           Icons.play_arrow,
-                          color: Colors.white,
-                          size: 32,
+                          color: MyColors.titleColor,
+                          size: 30,
                         ),
                         onPressed: () {}),
                   ),
@@ -132,7 +141,7 @@ class MusicPlayerScreen extends StatelessWidget {
               height: 60,
               width: MediaQuery.of(context).size.width - 80,
               decoration: BoxDecoration(
-                  color: const Color(0xff3b1f50),
+                  color: MyColors.backgroundColor2,
                   borderRadius: BorderRadius.all(Radius.circular(40))),
               child: Padding(
                 padding: const EdgeInsets.symmetric(horizontal: 16),
@@ -142,14 +151,14 @@ class MusicPlayerScreen extends StatelessWidget {
                     IconButton(
                         icon: Icon(
                           Icons.home,
-                          color: Colors.white,
+                          color: MyColors.titleColor,
                           size: 24,
                         ),
                         onPressed: () {}),
                     IconButton(
                         icon: Icon(
                           Icons.queue_music,
-                          color: Colors.white,
+                          color: MyColors.titleColor,
                           size: 24,
                         ),
                         onPressed: () {
@@ -158,7 +167,7 @@ class MusicPlayerScreen extends StatelessWidget {
                     IconButton(
                         icon: Icon(
                           Icons.favorite,
-                          color: Colors.white,
+                          color: MyColors.titleColor,
                           size: 24,
                         ),
                         onPressed: () {}),

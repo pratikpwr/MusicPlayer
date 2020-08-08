@@ -1,6 +1,7 @@
+import './theme/colors.dart';
+import './screens/home_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
-import './screens/playlist_screen.dart';
 
 void main() {
   runApp(MyApp());
@@ -13,19 +14,18 @@ class MyApp extends StatelessWidget {
       title: 'Music Player',
       debugShowCheckedModeBanner: false,
       theme: ThemeData(
-          primaryColor: const Color(0xffD933C3),
-          canvasColor: const Color(0xff1c0436),
-          iconTheme: IconThemeData(
-              color: const Color(0xffd594ee),
-              size: 24
-          ),
+          primaryColor: MyColors.primaryColor,
+          canvasColor: MyColors.backgroundColor1,
+          iconTheme: IconThemeData(color: MyColors.subtitleColor, size: 24),
           textTheme: TextTheme(
-            subtitle2: GoogleFonts.poppins(
-                fontSize: 14 , color: const Color(0xffd594ee)),
-            headline6: GoogleFonts.poppins(
-                fontSize: 28, fontWeight: FontWeight.bold, color: Colors.white),
+            subtitle2:
+                GoogleFonts.mukta(fontSize: 14, color: MyColors.subtitleColor),
+            headline6: GoogleFonts.mukta(
+                fontSize: 30,
+                fontWeight: FontWeight.bold,
+                color: MyColors.titleColor),
           )),
-      home: PlaylistScreen(),
+      home: HomeScreen(),
     );
   }
 }
